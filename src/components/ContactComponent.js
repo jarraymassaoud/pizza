@@ -1,10 +1,14 @@
-/* eslint-disable react/jsx-pascal-case */
 import React, { Component } from "react";
-import { Breadcrumb, BreadcrumbItem, Col, Label, Button } from "reactstrap";
-
-import { Form, Control, Errors, actions } from "react-redux-form";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  Button,
+  Label,
+  Col,
+  Row,
+} from "reactstrap";
 import { Link } from "react-router-dom";
-import { Row } from "react-bootstrap";
+import { Control, Form, Errors } from "react-redux-form";
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -21,8 +25,8 @@ class Contact extends Component {
   }
 
   handleSubmit(values) {
-    console.log("current state is:" + JSON.stringify(values));
-    alert("current state is:" + JSON.stringify(values));
+    this.props.postFeedback(values);
+
     this.props.resetFeedbackForm();
   }
 
@@ -34,10 +38,10 @@ class Contact extends Component {
             <BreadcrumbItem>
               <Link to="/home">Home</Link>
             </BreadcrumbItem>
-            <BreadcrumbItem active>Contact </BreadcrumbItem>
+            <BreadcrumbItem active>Contact Us</BreadcrumbItem>
           </Breadcrumb>
           <div className="col-12">
-            <h3>Contact </h3>
+            <h3>Contact Us</h3>
             <hr />
           </div>
         </div>
@@ -65,7 +69,7 @@ class Contact extends Component {
           <div className="col-12 col-sm-6 offset-sm-1">
             <h5>Map of our Location</h5>
           </div>
-          <div className="col-12 col-sm-11 offset-sm-1">
+          <div className="col-12 col-sm-6 offset-sm-1">
             <div className="btn-group" role="group">
               <a
                 role="button"
@@ -74,7 +78,9 @@ class Contact extends Component {
               >
                 <i className="fa fa-phone"></i> Call
               </a>
-
+              <a role="button" className="btn btn-info">
+                <i className="fa fa-skype"></i> Skype
+              </a>
               <a
                 role="button"
                 className="btn btn-success"
@@ -85,10 +91,9 @@ class Contact extends Component {
             </div>
           </div>
         </div>
-
         <div className="row row-content">
           <div className="col-12">
-            <h3>Send Your Message</h3>
+            <h3>Send us Your Feedback</h3>
           </div>
           <div className="col-12 col-md-9">
             <Form
@@ -263,4 +268,5 @@ class Contact extends Component {
     );
   }
 }
+
 export default Contact;

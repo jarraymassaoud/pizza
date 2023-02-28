@@ -1,23 +1,23 @@
-/* eslint-disable react/jsx-pascal-case */
 import React, { Component } from "react";
 import {
   Card,
   CardImg,
-  Button,
+  CardImgOverlay,
   CardText,
   CardBody,
   CardTitle,
   Breadcrumb,
   BreadcrumbItem,
+  Modal,
   ModalHeader,
   ModalBody,
-  Modal,
+  Button,
   Label,
-  Row,
   Col,
+  Row,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import { Control, Errors, LocalForm } from "react-redux-form";
+import { Control, LocalForm, Errors } from "react-redux-form";
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
 import { FadeTransform, Fade, Stagger } from "react-animation-components";
@@ -46,7 +46,6 @@ class CommentForm extends Component {
     this.toggleModal();
     this.props.postComment(
       this.props.dishId,
-      values.dishId,
       values.rating,
       values.author,
       values.comment
@@ -170,7 +169,7 @@ function RenderComments({ comments, postComment, dishId }) {
                   <li key={comment.id}>
                     <p>{comment.comment}</p>
                     <p>
-                      -- {comment.author}
+                      -- {comment.author} ,{" "}
                       {new Intl.DateTimeFormat("en-US", {
                         year: "numeric",
                         month: "short",
@@ -208,9 +207,7 @@ const Dishdetail = (props) => {
         </div>
       </div>
     );
-  }
-
-  if (props.dish != null) {
+  } else if (props.dish != null) {
     return (
       <div className="container">
         <div className="row">
