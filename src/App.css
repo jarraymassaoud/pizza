@@ -1,6 +1,8 @@
 .row-header {
   margin: 0px auto;
   padding: 0px auto;
+  align-items: center;
+  text-align: center;
 }
 
 .row-content {
@@ -18,7 +20,7 @@
 .jumbotron {
   padding: 70px 30px 70px 30px;
   margin: 0px auto;
-  background: #9575cd;
+  background: #48ac05;
   color: floralwhite;
 }
 
@@ -29,7 +31,7 @@ address {
 }
 
 .navbar-dark {
-  background-color: #512da8;
+  background-color: #154eeb;
 }
 .page-enter {
   opacity: 0.01;

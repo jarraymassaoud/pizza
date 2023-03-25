@@ -17,6 +17,7 @@ import {
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { Jumbotron } from "react-bootstrap";
+import Typed from "react-typed";
 
 class Header extends Component {
   constructor(props) {
@@ -64,7 +65,7 @@ class Header extends Component {
                 src="assets/images/logo.png"
                 height="30"
                 width="41"
-                alt="Ristorante Con Fusion"
+                alt=" Tunisian Kitchen"
               />
             </NavbarBrand>
             <Collapse isOpen={this.state.isNavOpen} navbar>
@@ -76,7 +77,7 @@ class Header extends Component {
                 </NavItem>
                 <NavItem>
                   <NavLink className="nav-link" to="/aboutus">
-                    <span className="fa fa-info fa-lg"></span> About Us
+                    <span className="fa fa-info fa-lg"></span> About
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -87,7 +88,6 @@ class Header extends Component {
                 <NavItem>
                   <NavLink className="nav-link" to="/contactus">
                     <span className="fa fa-address-card fa-lg"></span> Contact
-                    Us
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -105,12 +105,16 @@ class Header extends Component {
           <div className="container">
             <div className="row row-header">
               <div className="col-12 col-sm-6">
-                <h1>Ristorante Con Fusion</h1>
-                <p>
-                  We take inspiration from the World's best cuisines, and create
-                  a unique fusion experience. Our lipsmacking creations will
-                  tickle your culinary senses!
-                </p>
+                <Typed
+                  className="typed-text"
+                  strings={[
+                    " <h1>Tunisian Kitchen <h1>",
+                    "<p>We draw inspiration from the best kitchen in Tunisia and create a unique fusion experienceOur lip makeup creation stickle your culinary senses!</p>",
+                  ]}
+                  typeSpeed={60}
+                  backSpeed={30}
+                  loop
+                />
               </div>
             </div>
           </div>
